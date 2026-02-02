@@ -142,24 +142,24 @@ from app.services.user_service import (
 user_router = APIRouter(prefix="/users", tags=["Users"])
 
 
-@user_router.post("/")
+@router.post("/")
 def create(user: User):
     create_user(user.dict())
     return {"message": "User created"}
 
 
-@user_router.get("/")
+@router.get("/")
 def get_all():
     return get_all_users()
 
 
-@user_router.put("/{id}")
+@router.put("/{id}")
 def update(id: str, user: User):
     update_user(id, user.dict())
     return {"message": "User updated"}
 
 
-@user_router.delete("/{id}")
+@router.delete("/{id}")
 def delete(id: str):
     delete_user(id)
     return {"message": "User deleted"}
@@ -199,32 +199,3 @@ Swagger UI:
 http://127.0.0.1:8000/docs
 ```
 
----
-
-## 🧠 Why this repo is "Professional"
-
-✔ Clear separation of layers (Controller / Service / DB)
-✔ Same mindset as Spring Boot
-✔ Easy to scale (auth, pagination, DTO later)
-✔ Clean imports & naming
-✔ Ready for GitHub / Internship showcase
-
----
-
-## 🏁 Suggested GitHub Repo Name
-
-```
-fastapi-mongo-crud-clean-architecture
-```
-
----
-
-If you want next:
-
-* JWT Auth structure
-* Pagination & filtering
-* Exception handling (Global)
-* Async Mongo (Motor)
-* Spring Boot vs FastAPI mapping table
-
-Just say the word 👌
